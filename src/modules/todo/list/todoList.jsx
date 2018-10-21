@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { todoGetAll } from './../_actions/todoActions';
+import {Button} from 'reactstrap'
+
 
 class TodoList extends Component {
   componentDidMount() {
@@ -12,6 +14,7 @@ class TodoList extends Component {
     return (
       <div>
         <h1>Todos</h1>
+          {/*<Button color="primary">Add Todo</Button>*/} <Link to="/add-todo">Add Todo</Link>
         <ul>
           {this.props.todoList.map(el => (
             <li key={el._id}>{el.name}</li>
