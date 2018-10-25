@@ -12,3 +12,15 @@ export function todoGetAll() {
       })
       .catch(err => err);
 }
+
+export function creatTodoItem(name, description) {
+    return dispatch =>
+        post('/todo', {name, description})
+            .then(res => {
+                // dispatch({
+                //     type: 'CREAT_TODO_ITEM_SUCCESS'
+                // });
+                dispatch(push('/todos'));
+            });
+
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Col, Form, Row, FormGroup, Label, Input} from 'reactstrap';
 import _ from 'lodash';
+import {creatTodoItem} from  './../_actions/todoActions';
 
 class AddTodoView extends Component {
      state = {
@@ -53,6 +54,7 @@ class AddTodoView extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.props.creatTodoItem(this.state.name, this.state.description);
     }
 }
 
@@ -64,6 +66,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     // todoGetById: todoId => dispatch(todoGetById(todoId)),
+    creatTodoItem:(name, description) => dispatch(creatTodoItem(name, description))
 });
 
 export default connect(
